@@ -20,13 +20,14 @@ class InputDropdown extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 10),
         width: size.width * 0.8,
         child: DropdownButtonFormField(
-          validator: (value) {
+          validator: (String? value) {
             if (value == null) {
               return 'Debes seleccionar una opcion';
             }
+            controller!.text = value;
             return null;
           },
-          value: dropdownvalue,
+          value: controller!.text == "" ? items[0] : controller!.text,
           items: items.map((String items) {
             return DropdownMenuItem(
               value: items,

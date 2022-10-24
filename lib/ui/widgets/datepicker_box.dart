@@ -50,10 +50,7 @@ class _DatePickerBoxState extends State<DatePickerBox> {
         showTitleActions: true,
         maxTime: DateTime.now(),
         minTime: DateTime.now().subtract(const Duration(days: 30)),
-        onChanged: (date) {
-      print('change $date');
-    }, onConfirm: (date) {
-      print('confirm $date');
+        onChanged: (date) {}, onConfirm: (date) {
       setState(() {
         _value = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy]);
         widget.controller!.text = _value;

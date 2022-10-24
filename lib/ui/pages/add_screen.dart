@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects_view/ui/widgets/initial_button.dart';
+import 'package:flutter_projects_view/ui/pages/home_screen.dart';
 import 'package:flutter_projects_view/ui/widgets/custom_form.dart';
 import '../widgets/input_box.dart';
 
@@ -11,6 +12,14 @@ class AddScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+            child: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            }),
         body: SizedBox(
             width: size.width,
             height: size.height - 80,

@@ -49,7 +49,9 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-        id: json["id"],
+        id: json["id"] is int || json["id"] == null
+            ? json["id"]
+            : int.parse(json["id"]),
         email: json["email"],
         firstName: json["firstName"],
         secondName: json["secondName"],

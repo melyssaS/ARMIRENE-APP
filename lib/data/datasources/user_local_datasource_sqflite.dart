@@ -25,7 +25,7 @@ class UserLocalDataSource {
   }
 
   Future<void> addUser(User user) async {
-    logInfo("Adding user to db");
+    logInfo("ADD user to db");
     final db = await database;
 
     await db.insert(
@@ -33,21 +33,34 @@ class UserLocalDataSource {
       user.toJson(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+
+    logInfo(user.toJson());
+  }
+
+  Future<int> countEmails(User user) async {
+    final db = await database;
+
+    List<Map<String, dynamic>> users = await db.rawQuery(
+        "SELECT * FROM users WHERE firstName = '${user.firstName}' AND lastName = '${user.lastName}' AND country = '${user.country}'");
+
+    return users.length;
   }
 
   Future<void> deleteUser(String id) async {
-    logInfo("Adding user to db");
+    logInfo("DELETE user to db");
     final db = await database;
 
     await db.delete('users', where: "id = ?", whereArgs: [id]);
   }
 
   Future<void> updateUser(User user) async {
-    logInfo("Adding user to db");
+    logInfo("UPDATE user to db");
     final db = await database;
 
     await db
         .update('users', user.toJson(), where: "id = ?", whereArgs: [user.id]);
+
+    logInfo(user.toJson());
   }
 
   Future<User> getUser(String id) async {
@@ -61,12 +74,8 @@ class UserLocalDataSource {
     final db = await database;
 
     final List<Map<String, dynamic>> users = await db.query('users');
-    print(users);
+
     return users;
-    // return List.generate(users.length, (i) {
-    //   //keep in mind the index
-    //   return User.fromJson(users[i]);
-    // });
   }
 
   Future<void> deleteAll() async {

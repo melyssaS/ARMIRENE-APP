@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects_view/controllers/user_controller.dart';
 import 'package:flutter_projects_view/domain/repositories/user_repository.dart';
-import 'package:flutter_projects_view/ui/pages/home_screen.dart';
-import 'package:flutter_projects_view/ui/pages/initial_screen.dart';
+import 'package:loggy/loggy.dart';
 import 'package:flutter_projects_view/ui/pages/add_screen.dart';
-import 'package:flutter_projects_view/ui/pages/edit_screen.dart';
 import 'package:flutter_projects_view/domain/use_case/user_manager.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +17,11 @@ class InitialBinding implements Bindings {
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Loggy.initLoggy(
+    logPrinter: const PrettyPrinter(
+      showColors: true,
+    ),
+  );
   runApp(const MyApp());
 }
 

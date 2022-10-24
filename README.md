@@ -1,16 +1,11 @@
-# flutter_projects_view
+# AGREGAR USUARIO
 
-A new Flutter project.
+El formulario no permite letras mayusculas o espacios para los casos correspondientes
 
-## Getting Started
+![App](add_user.gif)
 
-This project is a starting point for a Flutter application.
+# EDITAR Y BORRAR USUARIO
 
-A few resources to get you started if this is your first Flutter project:
+Podemos notar como cambia el email cuando es editado
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![App](edit_delete.gif)

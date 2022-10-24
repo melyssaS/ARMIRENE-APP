@@ -14,8 +14,6 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    // List<Map<String, dynamic>> users = await widget.userController.getAllUsers()
-    //  print(widget.userController.getAllUsers());
     return SafeArea(
         child: Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -33,7 +31,8 @@ class HomeScreenState extends State<HomeScreen> {
           if (snapshot.hasData) {
             final cards = snapshot.data ?? [];
             //cards.insert(0, SearchField());
-            return Column(children: [SearchField(), ...cards]);
+            return SingleChildScrollView(
+                child: Column(children: [SearchField(), ...cards]));
           }
           return Column(children: [SearchField()]);
         },

@@ -13,6 +13,7 @@ class InputBox extends StatelessWidget {
       this.maxlength,
       this.filter = '',
       this.isEnabled = true,
+      this.isOptional = false,
       this.value,
       this.controller});
 
@@ -20,6 +21,7 @@ class InputBox extends StatelessWidget {
   final int? maxlength;
   final String? filter;
   final bool? isEnabled;
+  final bool isOptional;
   final String? value;
   final TextEditingController? controller;
 
@@ -34,7 +36,7 @@ class InputBox extends StatelessWidget {
         maxLength: maxlength,
         enabled: isEnabled,
         validator: (value) {
-          if (value == null || value.isEmpty) {
+          if (value == null || value.isEmpty && !isOptional) {
             return 'Debe ingresar texto';
           }
         },

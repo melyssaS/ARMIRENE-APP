@@ -28,6 +28,10 @@ class UserRepository {
     return await localDataSource.getUser("${user.id}");
   }
 
+  Future<int> countEmails(User user) async {
+    return await localDataSource.countEmails(user);
+  }
+
   Future<List<Map<String, dynamic>>> getAllUsers() async =>
       await localDataSource.getAllUsers();
 }

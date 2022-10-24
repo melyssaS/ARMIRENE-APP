@@ -14,6 +14,9 @@ class UserManager {
 
   Future<User> getUser(User user) async => await repository.getUser(user);
 
+  Future<int> countEmails(User user) async =>
+      await repository.countEmails(user);
+
   Future<List<Map<String, dynamic>>> getAllUsers() async =>
       await repository.getAllUsers();
 }
